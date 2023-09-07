@@ -79,5 +79,5 @@ Notion web-app.
 ## License
 [MIT](./LICENSE)
 
-# Acknowledgement
+## Acknowledgement
 https://github.com/Strvm/python-notion-exporter
