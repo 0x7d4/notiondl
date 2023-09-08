@@ -14,7 +14,7 @@ Designed to simplify the process of exporting content from Notion. It provides a
 
 ## Installation
 ```bash
-pip install https://github.com/0x7d4/notiondl/releases/download/v0.1.0/notiondl-0.1.0-py3-none-any.whl
+pip install notiondl
 ```
 
 ## Usage
