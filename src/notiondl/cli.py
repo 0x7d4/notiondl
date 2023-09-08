@@ -92,7 +92,7 @@ def run_from_cli():
         file_token=file_token,
         pages=pages_from_str(args.page_id),
         export_directory=args.export_dir,
-        flatten_export_file_tree=args.keep_structure,
+        flatten_export_file_tree=not args.keep_structure,
         export_type=args.export_type,
         current_view_export_type=args.current_view,
         include_files=not args.no_file,
