@@ -34,7 +34,7 @@ class NotionExporter:
 	- `file_token` The file_token cookie from your logged-in Notion session.
 	- `pages` A {'name' : 'id'} format dict. **Names can be anything you want**.
 	- `export_directory` The directory to export the pages to. Defaults to the current directory.
-	- `flatten_export_file_tree` Whether to flatten the export file tree. Defaults to True.
+	- `flatten_export_file_tree` All files are exported to a single directory. Defaults to True.
 	- `export_type` The type of export to perform. Defaults to `ExportType.MARKDOWN`.
 	- `current_view_export_type` The type of export to perform. Defaults to `ViewExportType.CURRENT_VIEW`.
 	- `include_files` Whether to include the static files in the export. Defaults to True.
@@ -151,6 +151,8 @@ class NotionExporter:
 			task_id=task_id
 		)
 		if state == "failure":
+			if error == "Invalid input.":
+				error = "Invalid page ID."
 			logger.error(f"Export failed for {name} with error: {error}")
 			return {"state": state, "name": name, "error": error}
 
