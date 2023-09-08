@@ -19,25 +19,25 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "-d",
-        "--export_directory",
+        "--export-dir",
         help="The directory to export the page to. Defaults to the current directory.",
     )
     parser.add_argument(
         "-k",
-        "--keep_structure",
+        "--keep-structure",
         help="Keep the page hierarchy when exporting. Defaults to False.",
         action="store_true",
     )
     parser.add_argument(
         "-t",
-        "--export_type",
+        "--export-type",
         help="The type of file to export. Defaults to HTML.",
         choices=["html", "markdown", "pdf", "word"],
         default="html",
     )
     parser.add_argument(
         "-c",
-        "--current_view_export_type",
+        "--current-view",
         help="The type of view to export. Defaults to the currentView.",
         choices=["currentView", "all"],
         default="currentView",
@@ -50,7 +50,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "-s",
-        "--single_page",
+        "--single-page",
         help="Do not export child pages. Defaults to False.",
         action="store_true",
     )
@@ -66,6 +66,14 @@ def parse_args() -> argparse.Namespace:
         help="Whether to print verbose output. Defaults to False.",
         action="store_true",
     )
+    parser.add_argument(
+        "--token-v2",
+        help="The token_v2 cookie value from your Notion session.",
+    )
+    parser.add_argument(
+        "--file-token",
+        help="The file-token cookie value from your Notion session.",
+    )
     args = parser.parse_args()
     return args
 
@@ -73,8 +81,8 @@ def parse_args() -> argparse.Namespace:
 def run_from_cli():
     """Runs the exporter from the CLI arguments."""
     args = parse_args()
-    token_v2 = os.getenv("NOTION_TOKEN_V2")
-    file_token = os.getenv("NOTION_FILE_TOKEN")
+    token_v2 = args.token_v2 or os.getenv("NOTION_TOKEN_V2")
+    file_token = args.file_token or os.getenv("NOTION_FILE_TOKEN")
     if not token_v2:
         raise ValueError("NOTION_TOKEN_V2 environment variable not set.")
     if not file_token:
@@ -83,10 +91,10 @@ def run_from_cli():
         token_v2=token_v2,
         file_token=file_token,
         pages=pages_from_str(args.page_id),
-        export_directory=args.export_directory,
+        export_directory=args.export_dir,
         flatten_export_file_tree=args.keep_structure,
         export_type=args.export_type,
-        current_view_export_type=args.current_view_export_type,
+        current_view_export_type=args.current_view,
         include_files=not args.no_file,
         recursive=not args.single_page,
         rewrite=args.rewrite,

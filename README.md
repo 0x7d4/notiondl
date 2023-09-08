@@ -26,14 +26,18 @@ python -m notiondl <PAGE_ID> -t <EXPORT_TYPE> --no-file -v
 | Argument | Description |
 | --- | --- |
 | `PAGE_ID` (required) | The ID of the Notion page you want to export. Separate multiple pages with commas. |
-| `-d`, `--export_directory` | The directory to export the page to. Defaults to the current directory. |
-| `-t`, `--export_type` | The type of file to export. Defaults to HTML. |
+| `-d`, `--export-dir` | The directory to export the page to. Defaults to the current directory. |
+| `-t`, `--export-type` | The type of file to export. Defaults to HTML. |
 | `-l`, `--no-file` | Do not export files attached to the page. Defaults to False. |
-| `-k`, `-keep_structure` | Keep the page hierarchy when exporting. Defaults to False. |
-| `-s`, `--single_page` | Do not export child pages. Defaults to False. |
+| `-k`, `-keep-structure` | Keep the page hierarchy when exporting. Defaults to False. |
+| `-s`, `--single-page` | Do not export child pages. Defaults to False. |
 | `-w`, `--rewrite` | Do not create date-formated folders for each export. Defaults to False. |
 | `-v`, `--verbose` | Whether to print verbose output. Defaults to False. |
-| `-c`, `--current_view_export_type` | The type of view to export. Defaults to the currentView. |
+| `-c`, `--current-view` | The type of view to export. Defaults to the currentView. |
+You can set whether `NOTION_TOKEN_V2` and `NOTION_FILE_TOKEN` environment variables or providing these as CLI arguments
+| `--token-v2` | The token_v2 cookie value from your Notion session. |
+| `--file-token` | The file-token cookie value from your Notion session. |
+
 
 ### Python
 ```python
