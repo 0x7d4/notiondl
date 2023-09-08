@@ -34,7 +34,7 @@ python -m notiondl <PAGE_ID> -t <EXPORT_TYPE> --no-file -v
 | `-w`, `--rewrite` | Do not create date-formated folders for each export. Defaults to False. |
 | `-v`, `--verbose` | Whether to print verbose output. Defaults to False. |
 | `-c`, `--current-view` | The type of view to export. Defaults to the currentView. |
-You can set whether `NOTION_TOKEN_V2` and `NOTION_FILE_TOKEN` environment variables or providing these as CLI arguments
+You can set whether `NOTION_TOKEN_V2` and `NOTION_FILE_TOKEN` environment variables or providing these as CLI arguments.
 | `--token-v2` | The token_v2 cookie value from your Notion session. |
 | `--file-token` | The file-token cookie value from your Notion session. |
 
