@@ -31,10 +31,10 @@ jobs:
 
           if [[ $last_commit_message =~ ^v$current_version ]]; then
             echo "Version change detected. Proceeding with PyPI publish."
-            echo "::set-output name=version_changed::true"
+            echo "{version_changed}={true}" >> $GITHUB_OUTPUT
           else
             echo "No version change detected. Skipping PyPI publish."
-            echo "::set-output name=version_changed::false"
+            echo "{version_changed}={false}" >> $GITHUB_OUTPUT
           fi
 
       - name: Publish to PyPI
