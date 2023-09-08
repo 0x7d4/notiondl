@@ -40,4 +40,4 @@ jobs:
       - name: Publish to PyPI
         if: steps.check_version.outputs.version_changed == 'true'
         run: |
-          poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
+          poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }} --build
