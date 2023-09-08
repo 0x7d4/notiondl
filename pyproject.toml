@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "notiondl"
-version = "0.2.1"
+version = "0.2.0"
 description = "Export and download Notion pages asynchronously"
 repository = "https://github.com/0x7d4/notiondl"
 urls = {"Bug Tracker" = "https://github.com/0x7d4/notiondl/issues" }
